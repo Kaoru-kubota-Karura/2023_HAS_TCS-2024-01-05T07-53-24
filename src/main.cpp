@@ -40,7 +40,11 @@ int main() {
    // catapult
    if(Controller1.ButtonL1.pressing()){//
      catapult.spin(reverse);
-   }else{
+   }
+   else if(Controller1.ButtonL2.pressing()){
+     catapult.stop(hold)
+   }
+   else{
      // catapult.spin(forward);
      // wait(0.5, seconds);
      catapult.stop();}
