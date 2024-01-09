@@ -47,6 +47,7 @@ int main() {
    else{
      // catapult.spin(forward);
      // wait(0.5, seconds);
+     catapult.setStopping(coast);
      catapult.stop();}
  }
  front_l.stop();
