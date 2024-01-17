@@ -29,48 +29,57 @@ using namespace vex;
 int main() {
  // Initializing Robot Configuration. DO NOT REMOVE!
  vexcodeInit();
- front_l.spin(forward);
- front_r.spin(forward);
- back_l.spin(reverse);
- back_r.spin(reverse);
+//  while(1){
+//    catapult.spin(reverse,Controller1.Axis2.position(percent)/4,percent);
+//  }
+
+
+ front_l.spin(reverse);
+ front_r.spin(reverse);
+ back_l.spin(forward);
+ back_r.spin(forward);
  wait(4, seconds);
- front_l.spin(forward);
- back_l.spin(reverse);
- front_r.stop(hold);
- back_r.stop(hold);
+ front_r.spin(reverse);
+ back_r.spin(forward);
+ front_l.stop(hold);
+ back_l.stop(hold);
  wait(1.5,seconds);
- front_l.spin(forward);
- front_r.spin(forward);
- back_l.spin(reverse);
- back_r.spin(reverse);
+ front_l.spin(reverse);
+ front_r.spin(reverse);
+ back_l.spin(forward);
+ back_r.spin(forward);
  wait(2,seconds);
  front_l.stop(coast);
  back_l.stop(coast);
  front_r.stop(coast);
  back_r.stop(coast);
+
+
  while(1){
-   front_l.spin(forward,Controller1.Axis3.position(percent),percent);
+   front_r.spin(reverse,Controller1.Axis3.position(percent),percent);
    // front_leftモータの速度ををコントローラーのAxis3の位置(パーセント)によって動かす
-   back_l.spin(reverse,Controller1.Axis3.position(percent),percent);
-   front_r.spin(forward,Controller1.Axis2.position(percent),percent);
-   back_r.spin(reverse,Controller1.Axis2.position(percent),percent);
+   back_r.spin(forward,Controller1.Axis3.position(percent),percent);
+   front_l.spin(reverse,Controller1.Axis2.position(percent),percent);
+   back_l.spin(forward,Controller1.Axis2.position(percent),percent);
 
 
    // catapult
    if(Controller1.ButtonL1.pressing()){//
-     catapult.spin(reverse);
+    catapult.spin(reverse);
+
    }
    else if(Controller1.ButtonL2.pressing()){
      catapult.stop(hold);
    }
    else{
-     // catapult.spin(forward);
-     // wait(0.5, seconds);
-     catapult.setStopping(coast);
-     catapult.stop();}
+    // catapult.spin(forward);
+    // wait(0.5, seconds);
+    catapult.setStopping(coast);
+    catapult.stop();}
  }
  front_l.stop();
  back_l.stop();
  front_r.stop();
  back_r.stop();
-}
+
+ }
